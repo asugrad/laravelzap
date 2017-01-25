@@ -12,7 +12,8 @@ Clone or download the repository.
 - Create views, models, and controllers just like you usually do, then run `php artisan zap:build` to regenerate the site.
 
 ## About Zap
-Working on the documentation.
+Working on the documentation but you can see how the site [Laravel Zap](https://laravelzap.com) works.
+This is the code that site is running on.
 
 ## License
 
