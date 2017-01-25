@@ -9,6 +9,12 @@ Clone or download the repository.
 - Go to your terminal and `cd` to the root of the site.
 - Run `npm install && composer install && gulp`
 - If you are using Laravel Valet, you are done! Just browse to the site.
+- If you have issues getting the site running locally, make sure you have a .env file created.
+- Then run `php artisan key:generate`
+- `php artisan storage:link`
+- `php artisan zap:build`
+- Hopefully, that will get the site going for you.
+
 - Create views, models, and controllers just like you usually do, then run `php artisan zap:build` to regenerate the site.
 
 ## About Zap
