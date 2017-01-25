@@ -43,5 +43,6 @@
  </div><! --/container -->
 </div><! --/footerwrap -->
 @include('layout.partials.js')
+@include('layout.partials.ga')
 </body>
 </html>
