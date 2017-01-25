@@ -116,6 +116,15 @@ class Zap extends Command
                 \File::put('build_local/'.$route->uri().'/index.html', $response->content());
               }
 
+              if(env('APP_ENV') == 'local'){
+
+                if (!file_exists('build_local/storage')) {
+                  $this->laravel->make('files')->link(storage_path('app/public'),'build_local/storage');
+                  $this->info('The [build_local/storage] directory has been linked.');
+                }
+
+              }
+
               if(!\File::exists('public/'.$route->uri())) {
                 \File::makeDirectory('public/'.$route->uri());
               }
@@ -126,7 +135,7 @@ class Zap extends Command
         }
 
         // add error handling duh
-        
+
         $this->info('Site zapped!');
     }
 }
