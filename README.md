@@ -2,6 +2,8 @@
 
 ![alt text](https://github.com/asugrad/laravelzap/blob/master/resources/assets/img/browser.png "Laravel Zap")
 
+[Laravel Zap Home Page](https://laravelzap.com)
+
 ## Installation
 Clone or download the repository.
 - Go to your terminal and `cd` to the root of the site.
