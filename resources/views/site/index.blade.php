@@ -57,7 +57,7 @@
        <i class="fa fa-hand-spock-o"></i>
        <h4>Free to Use</h4>
        <p>But if you want to buy me a really nice rye whiskey, I will not stop you
-       from doing so. And if you use it somewhere or really, really like, let me know.
+       from doing so. And if you use it somewhere or really, really like it, let me know.
      Or you can always buy me something from my Amazon wish list.</p>
        <p><br/><a target="_blank" href="http://a.co/5HwgmX7" class="btn btn-theme">Wishlist</a></p>
      </div>
