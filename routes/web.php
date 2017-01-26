@@ -21,14 +21,3 @@ Route::get('/about', function () {
 Route::get('/documentation', function () {
     return view('site.documentation');
 });
-
-// Route::get('/test', function () {
-//     return view('test');
-// });
-//
-// Route::get('/bladetest', function () {
-//   $test_data = ['Michael','Katy','Ronan'];
-//   return view('bladetest.index',compact('test_data'));
-// });
-//
-// Route::get('/testform', 'SiteController@testform');
