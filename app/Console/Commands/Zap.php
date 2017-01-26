@@ -69,6 +69,9 @@ class Zap extends Command
         \File::delete('public/index.php');
       }
 
+      //delete all files in public folder
+      
+
       //loop thru all the routes
     		foreach ($this->routes as $route){
 
