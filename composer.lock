@@ -4,9 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3fbd07627a1401b6de885051dcca0404",
-    "content-hash": "5a195ea91c0d2a8b086fb0f0dfec7ded",
+    "hash": "779da22e58a1765afbc94e86bb985425",
+    "content-hash": "f5ed40169524a995ecaa7bf4b6aee176",
     "packages": [
+        {
+            "name": "buzzylab/laradown",
+            "version": "v0.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/buzzylab/laradown.git",
+                "reference": "6e16d04471339aeed85c6cd77fdfa1cac3527fc7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/buzzylab/laradown/zipball/6e16d04471339aeed85c6cd77fdfa1cac3527fc7",
+                "reference": "6e16d04471339aeed85c6cd77fdfa1cac3527fc7",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "^1.6",
+                "erusev/parsedown-extra": "0.7.*",
+                "illuminate/container": "5.1.*|5.2.*|5.3.*",
+                "illuminate/contracts": "5.1.*|5.2.*|5.3.*",
+                "illuminate/events": "5.1.*|5.2.*|5.3.*",
+                "illuminate/filesystem": "5.1.*|5.2.*|5.3.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Buzzylab\\Laradown\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "buzzylab",
+                    "email": "buzzyllab@gmail.com"
+                },
+                {
+                    "name": "maher el gamil",
+                    "email": "maherbusnes@gmail.com"
+                }
+            ],
+            "description": "A New Markdown parser for Laravel built on parsedown",
+            "keywords": [
+                "editor",
+                "laravel",
+                "markdown",
+                "package"
+            ],
+            "time": "2016-12-31 01:27:33"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.1.0",
@@ -202,6 +257,50 @@
                 "parser"
             ],
             "time": "2016-11-02 15:56:58"
+        },
+        {
+            "name": "erusev/parsedown-extra",
+            "version": "0.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erusev/parsedown-extra.git",
+                "reference": "0db5cce7354e4b76f155d092ab5eb3981c21258c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/0db5cce7354e4b76f155d092ab5eb3981c21258c",
+                "reference": "0db5cce7354e4b76f155d092ab5eb3981c21258c",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "~1.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ParsedownExtra": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emanuil Rusev",
+                    "email": "hello@erusev.com",
+                    "homepage": "http://erusev.com"
+                }
+            ],
+            "description": "An extension of Parsedown that adds support for Markdown Extra.",
+            "homepage": "https://github.com/erusev/parsedown-extra",
+            "keywords": [
+                "markdown",
+                "markdown extra",
+                "parsedown",
+                "parser"
+            ],
+            "time": "2015-11-01 10:19:22"
         },
         {
             "name": "guzzlehttp/guzzle",

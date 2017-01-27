@@ -26,9 +26,11 @@
 
        <p>I have added a <a target="_blank" href="https://github.com/erusev/parsedown">markdown parser</a> to handle markdown files
          for flat file blogging.<br>
-         So, for instance, this markdown: <strong>'Emphasis, aka italics, with *asterisks* or _underscores_'</strong>
-         becomes this:  <strong>'{!! $markdown !!}'</strong>.
+         So, for instance, this markdown:
+         'Emphasis, aka italics, with *asterisks* or _underscores_' becomes this:
        </p>
+
+        <strong>@markdown('**Emphasis, aka italics, with *asterisks* or _underscores_.**')</strong>
 
      </div><! --/col-lg-8 -->
 
