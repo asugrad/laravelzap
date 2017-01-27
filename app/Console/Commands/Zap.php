@@ -57,20 +57,53 @@ class Zap extends Command
      */
     public function handle()
     {
+      $time_start = microtime(true);
+
       if(env('APP_ENV') == 'local'){
-        \File::delete('build_local/index.html');
+        //delete all files in build_local folder
+        $files = \File::allFiles('build_local');
+
+        foreach ($files as $file){
+          $filename =  (string)$file;
+          \File::delete($filename);
+          $this->info('Deleted:'. $filename);
+        }
+
+        $directories = $files = \File::directories('build_local');
+        foreach ($directories as $directory){
+          $directoryname =  (string)$directory;
+          if($directoryname != 'build_local/storage'){
+            \File::deleteDirectory($directory);
+            $this->info('Deleted:'. $directory);
+          }
+        }
       }
 
-      if(\File::exists('public/index.html')) {
-        \File::delete('public/index.html');
+      //delete all files in public folder
+      $files = \File::allFiles('public');
+      foreach ($files as $file){
+          $filename =  (string)$file;
+          if($filename != 'public/robots.txt'){
+            \File::delete($filename);
+            $this->info('Deleted:'. $filename);
+          }
+      }
+
+      $directories = $files = \File::directories('public');
+      foreach ($directories as $directory){
+        $directoryname =  (string)$directory;
+        if($directoryname != 'public/storage'){
+          \File::deleteDirectory($directory);
+          $this->info('Deleted:'. $directory);
+        }
       }
 
       if(\File::exists('public/index.php')) {
         \File::delete('public/index.php');
+        $this->info('Deleted: index.php');
       }
 
-      //delete all files in public folder
-      
+      $this->info('Building site...');
 
       //loop thru all the routes
     		foreach ($this->routes as $route){
@@ -139,6 +172,11 @@ class Zap extends Command
 
         // add error handling duh
 
-        $this->info('Site zapped!');
+        $time_end = microtime(true);
+
+        //dividing with 60 will give the execution time in minutes other wise seconds
+        $execution_time = ($time_end - $time_start)/60;
+
+        $this->info('Zap! Site compiled in '. round($execution_time, 4) . ' seconds!');
     }
 }
