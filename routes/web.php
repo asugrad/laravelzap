@@ -12,12 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('site.index');
+  return view('site.index');
 });
 
 Route::get('/about', function () {
-    return view('site.about');
+  return view('site.about');
 });
+
 Route::get('/documentation', function () {
-    return view('site.documentation');
+  $parsedown = new \Parsedown();
+
+  $markdown =  trim($parsedown->line('Emphasis, aka italics, with *asterisks* or _underscores_.'));
+
+  return view('site.documentation',compact('markdown'));
 });
