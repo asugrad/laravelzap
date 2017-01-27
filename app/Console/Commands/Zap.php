@@ -57,126 +57,129 @@ class Zap extends Command
      */
     public function handle()
     {
-      $time_start = microtime(true);
+      try{
+        $time_start = microtime(true);
 
-      if(env('APP_ENV') == 'local'){
-        //delete all files in env('APP_LOCAL_DEV_DIRECTORY', 'build_local') folder
-        $files = \File::allFiles(env('APP_LOCAL_DEV_DIRECTORY', 'build_local'));
+        if(env('APP_ENV') == 'local'){
+          //delete all files in env('APP_LOCAL_DEV_DIRECTORY', 'build_local') folder
+          $files = \File::allFiles(env('APP_LOCAL_DEV_DIRECTORY', 'build_local'));
 
-        foreach ($files as $file){
-          $filename =  (string)$file;
-          \File::delete($filename);
-          $this->info('Deleted:'. $filename);
+          foreach ($files as $file){
+            $filename =  (string)$file;
+            \File::delete($filename);
+            $this->info('Deleted:'. $filename);
+          }
+
+          $directories = $files = \File::directories(env('APP_LOCAL_DEV_DIRECTORY', 'build_local'));
+          foreach ($directories as $directory){
+            $directoryname =  (string)$directory;
+            if($directoryname != env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/storage'){
+              \File::deleteDirectory($directory);
+              $this->info('Deleted:'. $directory);
+            }
+          }
         }
 
-        $directories = $files = \File::directories(env('APP_LOCAL_DEV_DIRECTORY', 'build_local'));
+        //delete all files in env('APP_PUBLIC_DIRECTORY', 'public') folder
+        $files = \File::allFiles(env('APP_PUBLIC_DIRECTORY', 'public'));
+        foreach ($files as $file){
+            $filename =  (string)$file;
+            if($filename != env('APP_PUBLIC_DIRECTORY', 'public').'/robots.txt'){
+              \File::delete($filename);
+              $this->info('Deleted:'. $filename);
+            }
+        }
+
+        $directories = $files = \File::directories(env('APP_PUBLIC_DIRECTORY', 'public'));
         foreach ($directories as $directory){
           $directoryname =  (string)$directory;
-          if($directoryname != env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/storage'){
+          if($directoryname != env('APP_PUBLIC_DIRECTORY', 'public').'/storage'){
             \File::deleteDirectory($directory);
             $this->info('Deleted:'. $directory);
           }
         }
-      }
 
-      //delete all files in env('APP_PUBLIC_DIRECTORY', 'public') folder
-      $files = \File::allFiles(env('APP_PUBLIC_DIRECTORY', 'public'));
-      foreach ($files as $file){
-          $filename =  (string)$file;
-          if($filename != env('APP_PUBLIC_DIRECTORY', 'public').'/robots.txt'){
-            \File::delete($filename);
-            $this->info('Deleted:'. $filename);
-          }
-      }
-
-      $directories = $files = \File::directories(env('APP_PUBLIC_DIRECTORY', 'public'));
-      foreach ($directories as $directory){
-        $directoryname =  (string)$directory;
-        if($directoryname != env('APP_PUBLIC_DIRECTORY', 'public').'/storage'){
-          \File::deleteDirectory($directory);
-          $this->info('Deleted:'. $directory);
+        if(\File::exists(env('APP_PUBLIC_DIRECTORY', 'public').'/index.php')) {
+          \File::delete(env('APP_PUBLIC_DIRECTORY', 'public').'/index.php');
+          $this->info('Deleted: index.php');
         }
-      }
 
-      if(\File::exists(env('APP_PUBLIC_DIRECTORY', 'public').'/index.php')) {
-        \File::delete(env('APP_PUBLIC_DIRECTORY', 'public').'/index.php');
-        $this->info('Deleted: index.php');
-      }
+        $this->info('Building site...');
 
-      $this->info('Building site...');
+        //loop thru all the routes
+      		foreach ($this->routes as $route){
 
-      //loop thru all the routes
-    		foreach ($this->routes as $route){
+            $app = new \Illuminate\Foundation\Application(
+                realpath(__DIR__.'/../../../')
+            );
 
-          $app = new \Illuminate\Foundation\Application(
-              realpath(__DIR__.'/../../../')
-          );
+            $app->singleton(
+                \Illuminate\Contracts\Http\Kernel::class,
+                \App\Http\Kernel::class
+            );
 
-          $app->singleton(
-              \Illuminate\Contracts\Http\Kernel::class,
-              \App\Http\Kernel::class
-          );
+            $app->singleton(
+                Illuminate\Contracts\Console\Kernel::class,
+                \App\Console\Kernel::class
+            );
 
-          $app->singleton(
-              Illuminate\Contracts\Console\Kernel::class,
-              \App\Console\Kernel::class
-          );
+            $kernel = $app->make(\Illuminate\Contracts\Http\Kernel::class);
 
-          $kernel = $app->make(\Illuminate\Contracts\Http\Kernel::class);
+            $response = $kernel->handle(
+                $request = \Request::create($route->uri(), 'GET')
+            );
 
-          $response = $kernel->handle(
-              $request = \Request::create($route->uri(), 'GET')
-          );
+            if($route->uri() == '/'){
+              if(env('APP_ENV') == 'local'){
+                if(\File::exists(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/index.html')) {
+                  \File::put(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/index.html', $response->content());
+                } else {
+                  \File::put(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/index.html', $response->content());
+                }
+              }
 
-          if($route->uri() == '/'){
-            if(env('APP_ENV') == 'local'){
-              if(\File::exists(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/index.html')) {
-                \File::put(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/index.html', $response->content());
+              if(\File::exists(env('APP_PUBLIC_DIRECTORY', 'public').'/index.html')) {
+                \File::put(env('APP_PUBLIC_DIRECTORY', 'public').'/index.html', $response->content());
               } else {
-                \File::put(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/index.html', $response->content());
+                \File::put(env('APP_PUBLIC_DIRECTORY', 'public').'/index.html', $response->content());
               }
-            }
 
-            if(\File::exists(env('APP_PUBLIC_DIRECTORY', 'public').'/index.html')) {
-              \File::put(env('APP_PUBLIC_DIRECTORY', 'public').'/index.html', $response->content());
             } else {
-              \File::put(env('APP_PUBLIC_DIRECTORY', 'public').'/index.html', $response->content());
-            }
+              if(env('APP_ENV') == 'local'){
+                if(!\File::exists(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/'.$route->uri())) {
+                  \File::makeDirectory(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/'.$route->uri());
+                }
 
-          } else {
-            if(env('APP_ENV') == 'local'){
-              if(!\File::exists(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/'.$route->uri())) {
-                \File::makeDirectory(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/'.$route->uri());
+                \File::put(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/'.$route->uri().'/index.html', $response->content());
               }
 
-              \File::put(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/'.$route->uri().'/index.html', $response->content());
-            }
+              if(env('APP_ENV') == 'local'){
 
-            if(env('APP_ENV') == 'local'){
+                if (!file_exists(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/storage')) {
+                  $this->laravel->make('files')->link(storage_path('app/public'),env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/storage');
+                  $this->info('The ['.env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/storage] directory has been linked.');
+                }
 
-              if (!file_exists(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/storage')) {
-                $this->laravel->make('files')->link(storage_path('app/public'),env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/storage');
-                $this->info('The ['.env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/storage] directory has been linked.');
               }
 
+              if(!\File::exists(env('APP_PUBLIC_DIRECTORY', 'public').'/'.$route->uri())) {
+                \File::makeDirectory(env('APP_PUBLIC_DIRECTORY', 'public').'/'.$route->uri());
+              }
+
+              \File::put(env('APP_PUBLIC_DIRECTORY', 'public').'/'.$route->uri().'/index.html', $response->content());
             }
 
-            if(!\File::exists(env('APP_PUBLIC_DIRECTORY', 'public').'/'.$route->uri())) {
-              \File::makeDirectory(env('APP_PUBLIC_DIRECTORY', 'public').'/'.$route->uri());
-            }
-
-            \File::put(env('APP_PUBLIC_DIRECTORY', 'public').'/'.$route->uri().'/index.html', $response->content());
           }
 
+          $time_end = microtime(true);
+          $execution_time = ($time_end - $time_start)/60;
+
+          $this->info('Zap! Site compiled in '. round($execution_time, 4) . ' seconds!');
+
+          \Log::info('Zap! Site compiled in '. round($execution_time, 4) . ' seconds!');
+          
+        } catch(\Exception $e) {
+          $this->info('Sorry. An error has occurred. Please check the Laravel log file for details.');
         }
-
-        // add error handling duh
-
-        $time_end = microtime(true);
-
-        //dividing with 60 will give the execution time in minutes other wise seconds
-        $execution_time = ($time_end - $time_start)/60;
-
-        $this->info('Zap! Site compiled in '. round($execution_time, 4) . ' seconds!');
     }
 }
