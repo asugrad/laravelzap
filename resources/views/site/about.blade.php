@@ -13,8 +13,8 @@
     <div class="row">
 
       <div class="col-lg-8">
+        
         <h3 class="ctitle">Why I created this</h3>
-
         <p>I always want a fast-loading site with as few (or no) external
           dependencies that
           could potentially bring a site down. I also wanted something that
@@ -24,6 +24,7 @@
           was looking for. And this might not be what I am looking for either.
           But I am going to keep working on it until it is.
         </p>
+
         <h4>Where it is going</h4>
         <p>
           I think the application has potential for integration with a flat file database.

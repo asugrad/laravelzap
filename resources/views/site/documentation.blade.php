@@ -24,8 +24,8 @@
          <li>Create views, models, and controllers just like you usually do, then run `php artisan zap:build` to regenerate the site.</li>
        </ul>
 
-       <p>I have added a <a target="_blank" href="https://github.com/erusev/parsedown">markdown parser</a> to handle markdown files
-         for flat file blogging.<br>
+       <p>I have added a <a target="_blank" href="https://github.com/erusev/parsedown">markdown parser</a>
+         to handle markdown files too.<br>
          So, for instance, this markdown:
          'Emphasis, aka italics, with *asterisks* or _underscores_' becomes this:
        </p>

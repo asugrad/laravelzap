@@ -177,7 +177,7 @@ class Zap extends Command
           $this->info('Zap! Site compiled in '. round($execution_time, 4) . ' seconds!');
 
           \Log::info('Zap! Site compiled in '. round($execution_time, 4) . ' seconds!');
-          
+
         } catch(\Exception $e) {
           $this->info('Sorry. An error has occurred. Please check the Laravel log file for details.');
         }
