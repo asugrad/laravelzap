@@ -1,10 +1,12 @@
 const elixir = require('laravel-elixir');
 
+//CHANGE THIS TO YOUR LOCAL DEVLOPMENT URL FOR THE SITE
+var localsite = 'laravelzapgithub.dev';
+
 var gulp = require('gulp');
 var shell = require("gulp-shell");
 var browserSync = require('browser-sync');
 var livereload = require('gulp-livereload');
-var localsite = 'laravelzapgithub.dev';
 
 //gulp --production
 var production = elixir.config.production;
