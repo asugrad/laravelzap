@@ -14,6 +14,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/about">About</a></li>
         <li><a href="/documentation">Docs</a></li>
+        <li><a href="/blog">Blog</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

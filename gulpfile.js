@@ -1,23 +1,43 @@
 const elixir = require('laravel-elixir');
 
-require('laravel-elixir-vue-2');
+var gulp = require('gulp');
+var shell = require("gulp-shell");
+var browserSync = require('browser-sync');
+var livereload = require('gulp-livereload');
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for your application as well as publishing vendor resources.
- |
- */
+gulp.task('zapBuild', function() {
+  return gulp.src("").pipe( shell( [
+      "php artisan zap:build"
+  ]));
+});
 
 elixir((mix) => {
     mix.sass('app.scss','storage/app/public/css')
-       .webpack('app.js','storage/app/public/js');
+        .copy( 'resources/assets/img/', 'storage/app/public/img/' )
+        .webpack('app.js','storage/app/public/js')
+        .task('zapBuild')
+        .browserSync({
+          proxy: 'laravelzapgithub.dev',
+          port: 8080,
+          notify: false,
+          reloadOnRestart: true,
+          reloadDelay: 1000,
+          fn: function (event, file) {
+            mix.task('zapBuild')
+          },
+          files: [
+                'app/**/*',
+                'public/**/*',
+                'resources/**/*'
+            ],
+        })
 });
 
-elixir( function ( mix ) {
-  mix.copy( 'resources/assets/img/', 'storage/app/public/img/' );
-} );
+gulp.watch("resources/**/*", ['browserSync']).on('change',
+  function(mix) {
+    gulp.src("").pipe( shell( [
+        "php artisan zap:build"
+    ]));
+    browserSync.reload;
+  }
+);

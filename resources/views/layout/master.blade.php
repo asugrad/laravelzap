@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <meta name="description" content="A Laravel Powered Static Site Generator. Simply put: it generates static HTML files from your Laravel application.">
 
     <title>Laravel Zap!</title>
 

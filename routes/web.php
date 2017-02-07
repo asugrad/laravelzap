@@ -26,3 +26,7 @@ Route::get('/documentation', function () {
 
   return view('site.documentation',compact('markdown'));
 });
+
+Route::get('/blog', function () {
+  return view('site.blog');
+});

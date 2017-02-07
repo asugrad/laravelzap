@@ -36,6 +36,11 @@
          fast experience, use Laravel Zap<i class="fa fa-bolt" aria-hidden="true"></i>
          as your front end and connect it to <a target="_blank" href="https://lumen.laravel.com/">Lumen</a>.
        </p>
+       <p>
+         Use 'gulp watch' for a super fast development experience. I am working on a
+         blog post and video that will demonstrate how you can use 'gulp' to create
+         an amazing site in no time at all.
+       </p>
      </div>
    </div><! --/row -->
   </div><! --/container -->
