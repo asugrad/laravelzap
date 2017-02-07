@@ -12,7 +12,7 @@
    <div class="container mtb">
     <div class="row">
 
-      <div class="col-lg-8">
+      <div class="col-lg-8 larger-font">
 
         <h3 class="ctitle">Why I created this</h3>
         <p>I always want a fast-loading site with as few (or no) external

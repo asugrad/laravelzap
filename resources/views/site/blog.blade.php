@@ -12,7 +12,7 @@
    <div class="container mtb">
     <div class="row">
 
-      <div class="col-lg-8" id="blog-posts"></div><! --/col-lg-8 -->
+      <div class="col-lg-8 larger-font" id="blog-posts"></div><! --/col-lg-8 -->
 
 
       <! -- SIDEBAR -->

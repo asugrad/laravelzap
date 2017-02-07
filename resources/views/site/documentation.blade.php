@@ -13,7 +13,7 @@
   <div class="container mtb">
    <div class="row">
 
-     <div class="col-lg-8">
+     <div class="col-lg-8 larger-font">
        <h3 class="ctitle">What you need to do to get Laravel Zap! running</h3>
 
        <ul>

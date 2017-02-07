@@ -4,6 +4,9 @@ var gulp = require('gulp');
 var shell = require("gulp-shell");
 var browserSync = require('browser-sync');
 var livereload = require('gulp-livereload');
+var localsite = 'laravelzapgithub.dev';
+
+//gulp --production
 var production = elixir.config.production;
 
 gulp.task('zapBuild', function() {
@@ -27,7 +30,7 @@ elixir((mix) => {
       .webpack('app.js','storage/app/public/js')
       .task('zapBuild')
       .browserSync({
-        proxy: 'laravelzapgithub.dev',
+        proxy: localsite,
         port: 8080,
         notify: false,
         reloadOnRestart: true,

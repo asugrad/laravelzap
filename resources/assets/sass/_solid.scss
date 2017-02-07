@@ -55,7 +55,7 @@ p {
 	margin-top: 10px;
 }
 
-#blog-posts p {
+.larger-font p, .larger-font ul li {
 	padding: 0;
 	margin-bottom: 12px;
 	font-family: 'Lato', sans-serif;
@@ -64,6 +64,10 @@ p {
 	line-height: 2em;
 	color: #384452;
 	margin-top: 10px;
+}
+
+ul {
+  margin-left: 50px;
 }
 
 img {
