@@ -23,12 +23,14 @@ elixir((mix) => {
 
     mix.sass('app.scss','storage/app/public/css')
     .copy( 'resources/assets/img/', 'storage/app/public/img/' )
+    .copy( 'resources/assets/plugins/', 'storage/app/public/plugins/' )
     .webpack('app.js','storage/app/public/js');
 
   } else {
 
     mix.sass('app.scss','storage/app/public/css')
       .copy( 'resources/assets/img/', 'storage/app/public/img/' )
+      .copy( 'resources/assets/plugins/', 'storage/app/public/plugins/' )
       .webpack('app.js','storage/app/public/js')
       .task('zapBuild')
       .browserSync({
@@ -54,7 +56,6 @@ elixir((mix) => {
 
 if (!production) {
   gulp.watch("resources/**/*", ['browserSync']).on('change',
-
     function(mix) {
       gulp.src("").pipe( shell( [
           "php artisan zap:build"

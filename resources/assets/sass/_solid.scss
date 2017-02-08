@@ -26,18 +26,8 @@ body {
 	color: #384452;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
+  height: 100%
 	}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 100px;
-}
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Raleway', sans-serif;
@@ -66,7 +56,7 @@ p {
 	margin-top: 10px;
 }
 
-ul {
+ul.margin-left-50 {
   margin-left: 50px;
 }
 
@@ -356,13 +346,16 @@ a:focus {
 	margin-bottom: 60px;
 }
 
+.fill-page{
+  min-height:85%;
+}
+
 /* Footer */
 #footerwrap {
 	padding-top: 10px;
 	padding-bottom: 40px;
 	background: #384452;
-  position: absolute;
-  bottom: 0;
+  position: relative;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 100px;

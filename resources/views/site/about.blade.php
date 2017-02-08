@@ -42,7 +42,7 @@
 
         <h4>Links</h4>
         <div class="hline"></div>
-          <p><a href="target="_blank" href="https://github.com/asugrad/laravelzap"><i class="fa fa-angle-right"></i> Laravel Zap! GitHub Repo</a></p>
+          <p><a target="_blank" href="https://github.com/asugrad/laravelzap"><i class="fa fa-angle-right"></i> Laravel Zap! GitHub Repo</a></p>
       </div>
     </div><! --/row -->
    </div><! --/container -->
