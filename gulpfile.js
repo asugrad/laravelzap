@@ -23,15 +23,25 @@ elixir((mix) => {
 
     mix.sass('app.scss','storage/app/public/css')
     .copy( 'resources/assets/img/', 'storage/app/public/img/' )
-    .copy( 'resources/assets/plugins/', 'storage/app/public/plugins/' )
-    .webpack('app.js','storage/app/public/js');
+    .webpack([
+      'plugins/prism/min/prism-min.js',
+      'plugins/jquery-scrollTo/jquery.scrollTo.min.js',
+      'plugins/jquery-match-height/jquery.matchHeight-min.js',
+      'app.js'
+      ]
+      ,'storage/app/public/js/app.js');
 
   } else {
 
     mix.sass('app.scss','storage/app/public/css')
       .copy( 'resources/assets/img/', 'storage/app/public/img/' )
-      .copy( 'resources/assets/plugins/', 'storage/app/public/plugins/' )
-      .webpack('app.js','storage/app/public/js')
+      .webpack([
+        'plugins/prism/min/prism-min.js',
+        'plugins/jquery-scrollTo/jquery.scrollTo.min.js',
+        'plugins/jquery-match-height/jquery.matchHeight-min.js',
+        'app.js'
+        ]
+        ,'storage/app/public/js/app.js')
       .task('zapBuild')
       .browserSync({
         proxy: localsite,
