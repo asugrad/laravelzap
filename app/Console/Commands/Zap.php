@@ -167,16 +167,21 @@ class Zap extends Command
               }
 
               \File::put(env('APP_PUBLIC_DIRECTORY', 'public').'/'.$route->uri().'/index.html', $response->content());
+
             }
 
           }
 
           $time_end = microtime(true);
           $execution_time = ($time_end - $time_start)/60;
+          $message = 'Zap! Site built in '. round($execution_time, 4) . ' seconds!';
 
-          $this->info('Zap! Site compiled in '. round($execution_time, 4) . ' seconds!');
+          $this->info($message);
 
-          \Log::info('Zap! Site compiled in '. round($execution_time, 4) . ' seconds!');
+          \File::put(env('APP_LOCAL_DEV_DIRECTORY', 'build_local').'/site_generated.txt', $message);
+          \File::put(env('APP_PUBLIC_DIRECTORY', 'public').'/site_generated.txt', $message);
+
+          \Log::info($message);
 
         } catch(\Exception $e) {
           $this->info('Sorry. An error has occurred. Please check the Laravel log file for details.');

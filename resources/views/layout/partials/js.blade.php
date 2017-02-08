@@ -20,5 +20,13 @@
       $('#blog-posts').html(blog_posts);
   	});
 
+    $.ajax({
+        url : "site_generated.txt",
+        dataType: "text",
+        success : function (data) {
+          $("#site_generated").html('<h5>'+data+'</h5>');
+        }
+    });
+
   });
 </script>

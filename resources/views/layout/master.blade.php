@@ -33,12 +33,10 @@
 
 <div id="footerwrap" class="footer navbar-fixed-bottom">
    <div class="row">
+     <div class="col-lg-3 col-lg-offset-1" id="site_generated"></div>
      <div class="col-lg-3 pull-right">
-       <h5>Developed by Michael O'Neil</h5>
-       <div class="hline-w"></div>
-
-         <a href="mailto:info@laravelzap.com">info@laravelzap.com</a>
-
+      <h5>Developed by Michael O'Neil</h5>
+      <a href="mailto:info@laravelzap.com">info@laravelzap.com</a>
      </div>
 
    </div><! --/row -->
