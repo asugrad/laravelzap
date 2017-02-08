@@ -37,6 +37,21 @@
                              <section id="installation-section" class="doc-section">
                                  <h2 class="section-title">Installation</h2>
                                  <div id="step1"  class="section-block">
+                                   <div class="callout-block callout-info">
+                                       <div class="icon-holder">
+                                           <i class="fa fa-info-circle"></i>
+                                       </div><!--//icon-holder-->
+                                       <div class="content">
+                                           <h4 class="callout-title">Achtung</h4>
+                                           <p>
+                                             I use <a href="https://laravel.com/docs/5.3/valet" target="_blank">Laravel Valet</a>
+                                            as my development environment. These installation notes are based solely on
+                                            getting the site running on Laravel Valet. I have not yet tested it on MAMP, WAMP,
+                                            or Laravel Homestead though it might work perfectly fine on those environments.
+                                           </p>
+                                       </div><!--//content-->
+                                   </div><!--//callout-block-->
+
                                      <h3 class="block-title">Step One</h3>
                                      <p>
                                        After you have downloaded or cloned the repo, go into your terminal and `cd`
@@ -104,6 +119,30 @@
 
                              </section><!--//doc-section-->
 
+                             <section id="deploying" class="doc-section">
+                                 <h3 class="block-title">Deploying the Site</h3>
+                                 <p>
+                                   You could simply build out, generate the site, and deploy only the 'public' folder.
+                                   You would then just have to update the paths in the 'gulpfile.js' file to publish
+                                   out your assets to the 'public' folder. I may someday soon make the 'public' folder
+                                   the default path for the assets for the sake of simplicity (as is typical in most
+                                   Laravel deployments).
+                                 </p>
+                                 <p>
+                                   But until I make that happen, I just deploy the whole application (using Laravel Forge)
+                                   and have the following setup for my deploy script:
+                                 </p>
+                                 <div class="code-block">
+                                     <p><code>cd /home/forge/laravelzap.com<br>
+                                     git pull origin master<br>
+                                     composer install --no-interaction --prefer-dist --optimize-autoloader<br>
+                                     gulp --production</code></p>
+                                 </div><!--//code-block-->
+                                 <p>
+                                   The 'gulp --production' is the key. It regenerates the site and the assets.
+                                 </p>
+                             </section><!--//doc-section-->
+
                              <section id="video-section" class="doc-section">
                                  <h2 class="section-title">Video Tutorial (Coming Soon)</h2>
                                  <div class="section-block">
@@ -139,6 +178,7 @@
                                      </ul><!--//nav-->
                                  </li>
                                  <li><a class="scrollto" href="#development">Development Tips</a></li>
+                                 <li><a class="scrollto" href="#deploying">Deploying the Site</a></li>
                                  <li><a class="scrollto" href="#video-section">Video</a></li>
                              </ul><!--//doc-menu-->
                          </nav>
