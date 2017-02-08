@@ -81,7 +81,7 @@
                                        </code>
                                      </div><!--//code-block-->
                                      <p>
-                                       BrowserSync will use this as a proxy to do live reloading development environment.
+                                       BrowserSync will use this as a proxy to create a live-reloading development experience.
                                      </p>
                                  </div><!--//section-block-->
                                  <div id="step3"  class="section-block">
