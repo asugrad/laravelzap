@@ -9,7 +9,6 @@
       </div> <!-- /container -->
   </div><!-- /blue -->
 
-
   <div class="container mtb">
    <div class="row">
      <div class="page-wrapper">
@@ -19,6 +18,20 @@
                  <div class="doc-body">
                      <div class="doc-content">
                          <div class="content-inner">
+
+                           <div class="callout-block callout-danger">
+                               <div class="icon-holder">
+                                   <i class="fa fa-exclamation-triangle"></i>
+                               </div><!--//icon-holder-->
+                               <div class="content">
+                                   <h4 class="callout-title">Experimental Only</h4>
+                                   <p>
+                                     This application is still very much experimental. You
+                                     have been forewarned.
+                                   </p>
+                               </div><!--//content-->
+                           </div><!--//callout-block-->
+
                              <section id="download-section" class="doc-section">
                                  <h2 class="section-title">Download</h2>
                                  <div class="section-block">
@@ -129,7 +142,7 @@
                                    Laravel deployments).
                                  </p>
                                  <p>
-                                   But until I make that happen, I just deploy the whole application (using Laravel Forge)
+                                   But until I make that happen, I just deploy the whole application (using <a href="https://forge.laravel.com" target="_blank">Laravel Forge</a>)
                                    and have the following setup for my deploy script:
                                  </p>
                                  <div class="code-block">
