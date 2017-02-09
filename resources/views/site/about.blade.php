@@ -24,6 +24,16 @@
           was looking for. And this might not be what I am looking for either.
           But I am going to keep working on it until it is.
         </p>
+        <h3 class="ctitle">Laravel Zap<i class="fa fa-bolt" aria-hidden="true"></i> can also handle markdown</h3>
+        <p>
+          For instance, this markdown<br>
+          <code>Emphasis, aka italics, with *asterisks* or _underscores_.</code>
+          <br>
+          Becomes this:<br>
+          <strong>{!! $markdown !!}</strong><br>
+          I am working on creating other examples on how to better use markdown in the
+          app. It is forthcoming.
+        </p>
         <p>Stay tuned for updates...</p>
 
       </div>

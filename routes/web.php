@@ -16,15 +16,16 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-  return view('site.about');
-});
-
-Route::get('/documentation', function () {
   $parsedown = new \Parsedown();
 
   $markdown =  trim($parsedown->line('Emphasis, aka italics, with *asterisks* or _underscores_.'));
+  
+  return view('site.about',compact('markdown'));
+});
 
-  return view('site.documentation',compact('markdown'));
+Route::get('/documentation', function () {
+
+  return view('site.documentation');
 });
 
 Route::get('/blog', function () {
