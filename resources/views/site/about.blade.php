@@ -16,7 +16,8 @@
 
         <h3 class="ctitle">Static site generators are all the rage right now</h3>
         <p>First off, I always want a fast-loading site with as few (or no) external
-          dependencies that could potentially bring a site down.
+          dependencies that could potentially bring a site down. I am not always
+          able to achieve that for various reasons, but I do try.
           I also wanted something that
           is simple to deploy, maintain, and manage, but I did not
           want to give up using Laravel. I looked at <a href="https://jigsaw.tighten.co">Jigsaw</a>
