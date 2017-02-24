@@ -34,7 +34,7 @@
          You can use Blade files. You can use controllers and models. You can
          use all the delcious MVC goodness that Laravel offers. For a blazing
          fast experience, use Laravel Zap<i class="fa fa-bolt" aria-hidden="true"></i>
-         as your front end and connect it to <a target="_blank" href="https://lumen.laravel.com/">Lumen</a>.
+         as your front end and connect it to an API via <a target="_blank" href="https://lumen.laravel.com/">Lumen</a>.
        </p>
        <p>
          Use 'gulp watch' for a super fast development experience. I am working on a
