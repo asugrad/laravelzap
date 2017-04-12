@@ -71,7 +71,7 @@
                                        to the root of the site. Then execute the following commands to set up the site.
                                      </p>
                                      <div class="code-block">
-                                         <p><code>npm install</code></p>
+                                         <p><code>yarn install</code></p>
                                          <p><code>composer install</code></p>
                                      </div><!--//code-block-->
                                  </div><!--//section-block-->
@@ -80,10 +80,11 @@
                                      <p>
                                        A '.env' file should have been created for you in the root of the site. If one
                                        was not created for you, simply rename the '.env.example' file to '.env'. Then run
-                                       the artisan command to generate an application key for your application
+                                       the artisan command to create the storage link to where the site assets will
+                                         be stored.
                                      </p>
                                      <div class="code-block">
-                                         <p><code>php artisan key:generate</code></p>
+                                         <p><code>php artisan storage:link</code></p>
                                      </div><!--//code-block-->
                                      <p>Next you will need to edit the 'gulpfile.js' file in the root of your application.
                                       Change the following line to whatever your local development url is:
