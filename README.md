@@ -4,6 +4,8 @@
 
 [Laravel Zap Home Page](https://laravelzap.com)
 
+[Laravel Zap Documentation](https://laravelzap.com/documentation/)
+
 ## Installation
 Clone or download the repository.
 - Go to your terminal and `cd` to the root of the site.
