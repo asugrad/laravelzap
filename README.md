@@ -9,6 +9,7 @@ Clone or download the repository.
 - Go to your terminal and `cd` to the root of the site.
 - Run `yarn install`
 - Run `composer install`
+- Change the line `var localsite = 'YOURLOCALDEV';` in your gulpfile.js
 - Run `gulp`
 - If you are using Laravel Valet, you are done! Just browse to the site.
 - If you have issues getting the site running locally, make sure you have a .env file created.
