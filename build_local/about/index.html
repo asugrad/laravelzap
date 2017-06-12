@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <meta name="description" content="A Laravel Powered Static Site Generator. Simply put: it generates static HTML files from your Laravel application.">
+
+    <title>Laravel Zap!</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="/storage/css/app.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body>
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Laravel Zap<i class="fa fa-bolt" aria-hidden="true"></i></a>
+    </div>
+    <div class="navbar-collapse collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/documentation">Documentation</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<div class="fill-page">
+    <div id="blue">
+    <div class="container">
+      <div class="row">
+        <h3>About Laravel Zap!</h3>
+      </div><!-- /row -->
+      </div> <!-- /container -->
+  </div><!-- /blue -->
+
+   <div class="container mtb">
+    <div class="row">
+
+      <div class="col-lg-8 larger-font col-lg-offset-2">
+
+        <h3 class="ctitle">Static site generators are all the rage right now</h3>
+        <p>First off, I always want a fast-loading site with as few (or no) external
+          dependencies that could potentially bring a site down. I am not always
+          able to achieve that for various reasons, but I do try.
+          I also wanted something that
+          is simple to deploy, maintain, and manage, but I did not
+          want to give up using Laravel. I looked at <a href="https://jigsaw.tighten.co">Jigsaw</a>
+          (which is really great by the way), but it was not exactly what I
+          was looking for. And this might not be what I am looking for either.
+          But I am going to keep working on it until it is.
+        </p>
+        <h3 class="ctitle">Laravel Zap<i class="fa fa-bolt" aria-hidden="true"></i> can also handle markdown</h3>
+        <p>
+          For instance, this markdown<br>
+          <code>Emphasis, aka italics, with *asterisks* or _underscores_.</code>
+          <br>
+          Becomes this:<br>
+          <strong>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</strong><br>
+          I am working on creating other examples on how to better use markdown in the
+          app. It is forthcoming.
+        </p>
+        <p>Stay tuned for updates...</p>
+
+      </div>
+    </div><! --/row -->
+   </div><! --/container -->
+</div>
+
+<div id="footerwrap" class="footer navbar-fixed-bottom">
+   <div class="row">
+     <div class="col-lg-3 col-lg-offset-1" id="site_generated"></div>
+     <div class="col-lg-3 pull-right">
+      <h5>Developed by Michael O'Neil</h5>
+      <a href="mailto:info@laravelzap.com">info@laravelzap.com</a>
+     </div>
+
+   </div><! --/row -->
+</div><! --/footerwrap -->
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/storage/js/app.js"></script>
+<script>
+  //load blog
+  $(function() {
+
+  	// Call the /posts endpoint via the WordPress API
+  	$.get("https://mbontest.com/wp-json/wp/v2/posts", function (posts) {
+
+      blog_posts = '';
+      $.each(posts, function(index, post) {
+        var date = new Date(post.date);
+
+        blog_posts += '<h3 class="ctitle">'+post.title['rendered']+'</h3>';
+        blog_posts += '<h4>'+(date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear()+'</h4>';
+        blog_posts += post.content['rendered'];
+        blog_posts += '<div class="hline"></div>';
+        blog_posts += '<div class="spacing"></div>';
+      });
+
+      $('#blog-posts').html(blog_posts);
+  	});
+
+    $.ajax({
+        url : "site_generated.txt",
+        dataType: "text",
+        success : function (data) {
+          $("#site_generated").html('<h5>'+data+'</h5>');
+        }
+    });
+
+  });
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

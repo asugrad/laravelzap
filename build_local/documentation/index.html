@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <meta name="description" content="A Laravel Powered Static Site Generator. Simply put: it generates static HTML files from your Laravel application.">
+
+    <title>Laravel Zap!</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="/storage/css/app.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body>
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Laravel Zap<i class="fa fa-bolt" aria-hidden="true"></i></a>
+    </div>
+    <div class="navbar-collapse collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/documentation">Documentation</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<div class="fill-page">
+    <div id="blue">
+      <div class="container">
+      <div class="row">
+        <h3>Documentation</h3>
+      </div><!-- /row -->
+      </div> <!-- /container -->
+  </div><!-- /blue -->
+
+  <div class="container mtb">
+   <div class="row">
+     <div class="page-wrapper">
+
+         <div class="doc-wrapper">
+             <div class="container">
+                 <div class="doc-body">
+                     <div class="doc-content">
+                         <div class="content-inner">
+
+                           <div class="callout-block callout-danger">
+                               <div class="icon-holder">
+                                   <i class="fa fa-exclamation-triangle"></i>
+                               </div><!--//icon-holder-->
+                               <div class="content">
+                                   <h4 class="callout-title">Experimental Only</h4>
+                                   <p>
+                                     This application is still very much experimental. You
+                                     have been forewarned.
+                                   </p>
+                               </div><!--//content-->
+                           </div><!--//callout-block-->
+
+                             <section id="download-section" class="doc-section">
+                                 <h2 class="section-title">Download</h2>
+                                 <div class="section-block">
+                                     <p>
+                                       You can clone it from the <a href="https://github.com/asugrad/laravelzap">Github</a> repo:
+                                     </p>
+                                     <div class="code-block">
+                                         <p><code>git clone git@github.com:asugrad/laravelzap.git</code></p>
+                                     </div><!--//code-block-->
+                                     <p>
+                                       Or you can download the master branch;
+                                     </p>
+                                     <a href="https://github.com/asugrad/laravelzap/archive/master.zip" class="btn btn-info" target="_blank"><i class="fa fa-download"></i> Download Laravel Zap<i class="fa fa-bolt" aria-hidden="true"></i></a>
+                                 </div>
+                             </section><!--//doc-section-->
+                             <section id="installation-section" class="doc-section">
+                                 <h2 class="section-title">Installation</h2>
+                                 <div id="step1"  class="section-block">
+                                   <div class="callout-block callout-info">
+                                       <div class="icon-holder">
+                                           <i class="fa fa-info-circle"></i>
+                                       </div><!--//icon-holder-->
+                                       <div class="content">
+                                           <h4 class="callout-title">Achtung</h4>
+                                           <p>
+                                             I use <a href="https://laravel.com/docs/5.3/valet" target="_blank">Laravel Valet</a>
+                                            as my development environment. These installation notes are based solely on
+                                            getting the site running on Laravel Valet. I have not yet tested it on MAMP, WAMP,
+                                            or Laravel Homestead though it might work perfectly fine on those environments.
+                                           </p>
+                                       </div><!--//content-->
+                                   </div><!--//callout-block-->
+
+                                     <h3 class="block-title">Step One</h3>
+                                     <p>
+                                       After you have downloaded or cloned the repo, go into your terminal and `cd`
+                                       to the root of the site. Then execute the following commands to set up the site.
+                                     </p>
+                                     <div class="code-block">
+                                         <p><code>yarn install</code></p>
+                                         <p><code>composer install</code></p>
+                                     </div><!--//code-block-->
+                                 </div><!--//section-block-->
+                                 <div id="step2"  class="section-block">
+                                     <h3 class="block-title">Step Two</h3>
+                                     <p>
+                                       A '.env' file should have been created for you in the root of the site. If one
+                                       was not created for you, simply rename the '.env.example' file to '.env'. Then run
+                                       the artisan command to create the storage link to where the site assets will
+                                         be stored.
+                                     </p>
+                                     <div class="code-block">
+                                         <p><code>php artisan storage:link</code></p>
+                                     </div><!--//code-block-->
+                                     <p>Next you will need to edit the 'gulpfile.js' file in the root of your application.
+                                      Change the following line to whatever your local development url is:
+                                     </p>
+                                     <div class="code-block">
+                                       <code class="language-javascript" style="padding:10px;">
+                                         var localsite = 'YOURLOCALDEV';
+                                       </code>
+                                     </div><!--//code-block-->
+                                     <p>
+                                       BrowserSync will use this as a proxy to create a live-reloading development experience.
+                                     </p>
+                                 </div><!--//section-block-->
+                                 <div id="step3"  class="section-block">
+                                     <h3 class="block-title">Step Three</h3>
+                                     <p>
+                                       You are now ready to launch your local site. Run the following command from the
+                                       terminal in the root of your site
+                                     </p>
+                                     <div class="code-block">
+                                         <p><code>gulp watch</code></p>
+                                     </div><!--//code-block-->
+                                     <p>
+                                       The site should open up at http://localhost:8080
+                                     </p>
+                                 </div><!--//section-block-->
+                             </section><!--//doc-section-->
+
+                             <section id="development" class="doc-section">
+                                 <h3 class="block-title">Development Tips</h3>
+
+                                 <div class="callout-block callout-success">
+                                     <div class="icon-holder">
+                                         <i class="fa fa-thumbs-up"></i>
+                                     </div><!--//icon-holder-->
+                                     <div class="content">
+                                         <h4 class="callout-title">Using gulp watch</h4>
+                                         <p>
+                                           As long as 'gulp watch' is running, any changes you make to your blade, javascript, or SASS
+                                           files, will force the open browser tab to refresh and display your changes. You can make
+                                           changes on the fly and see your updates as you make them. This allows for truly rapid development,
+                                         </p>
+                                     </div><!--//content-->
+                                 </div><!--//callout-block-->
+
+
+                             </section><!--//doc-section-->
+
+                             <section id="deploying" class="doc-section">
+                                 <h3 class="block-title">Deploying the Site</h3>
+                                 <p>
+                                   You could simply build out, generate the site, and deploy only the 'public' folder.
+                                   You would then just have to update the paths in the 'gulpfile.js' file to publish
+                                   out your assets to the 'public' folder. I may someday soon make the 'public' folder
+                                   the default path for the assets for the sake of simplicity (as is typical in most
+                                   Laravel deployments).
+                                 </p>
+                                 <p>
+                                   But until I make that happen, I just deploy the whole application (using <a href="https://forge.laravel.com" target="_blank">Laravel Forge</a>)
+                                   and have the following setup for my deploy script:
+                                 </p>
+                                 <div class="code-block">
+                                     <p><code>cd /home/forge/laravelzap.com<br>
+                                     git pull origin master<br>
+                                     composer install --no-interaction --prefer-dist --optimize-autoloader<br>
+                                     gulp --production</code></p>
+                                 </div><!--//code-block-->
+                                 <p>
+                                   The 'gulp --production' is the key. It regenerates the site and the assets.
+                                 </p>
+                             </section><!--//doc-section-->
+
+                             <section id="video-section" class="doc-section">
+                                 <h2 class="section-title">Video Tutorial (Coming Soon)</h2>
+                                 <div class="section-block">
+                                     <div class="row">
+                                         <div class="col-md-12 col-sm-12 col-xs-12">
+                                             <h6>Getting up and running with Laravel Zap<i class="fa fa-bolt" aria-hidden="true"></i></h6>
+                                             <p>I am working on recording and editing a tutorial on how to get the site working. In <thead>
+                                               meantime, enjoy a video from Feud Nation>
+                                             </thead></p>
+                                             <!-- 16:9 aspect ratio -->
+                                             <div class="embed-responsive embed-responsive-16by9">
+                                                 <iframe width="560" height="315" src="https://www.youtube.com/embed/a4Ds0BFCItE" frameborder="0" allowfullscreen></iframe>
+                                             </div>
+                                         </div>
+
+                                     </div><!--//row-->
+                                 </div><!--//section-block-->
+
+
+                             </section><!--//doc-section-->
+                         </div><!--//content-inner-->
+                     </div><!--//doc-content-->
+                     <div class="doc-sidebar hidden-xs">
+                         <nav id="doc-nav">
+                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                 <li><a class="scrollto" href="#download-section">Download</a></li>
+                                 <li>
+                                     <a class="scrollto" href="#installation-section">Installation</a>
+                                     <ul class="nav doc-sub-menu">
+                                         <li><a class="scrollto" href="#step1">Step One</a></li>
+                                         <li><a class="scrollto" href="#step2">Step Two</a></li>
+                                         <li><a class="scrollto" href="#step3">Step Three</a></li>
+                                     </ul><!--//nav-->
+                                 </li>
+                                 <li><a class="scrollto" href="#development">Development Tips</a></li>
+                                 <li><a class="scrollto" href="#deploying">Deploying the Site</a></li>
+                                 <li><a class="scrollto" href="#video-section">Video</a></li>
+                             </ul><!--//doc-menu-->
+                         </nav>
+                     </div><!--//doc-sidebar-->
+                 </div><!--//doc-body-->
+             </div><!--//container-->
+         </div><!--//doc-wrapper-->
+
+     </div><!--//page-wrapper-->
+   </div><! --/row -->
+  </div><! --/container -->
+</div>
+
+<div id="footerwrap" class="footer navbar-fixed-bottom">
+   <div class="row">
+     <div class="col-lg-3 col-lg-offset-1" id="site_generated"></div>
+     <div class="col-lg-3 pull-right">
+      <h5>Developed by Michael O'Neil</h5>
+      <a href="mailto:info@laravelzap.com">info@laravelzap.com</a>
+     </div>
+
+   </div><! --/row -->
+</div><! --/footerwrap -->
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/storage/js/app.js"></script>
+<script>
+  //load blog
+  $(function() {
+
+  	// Call the /posts endpoint via the WordPress API
+  	$.get("https://mbontest.com/wp-json/wp/v2/posts", function (posts) {
+
+      blog_posts = '';
+      $.each(posts, function(index, post) {
+        var date = new Date(post.date);
+
+        blog_posts += '<h3 class="ctitle">'+post.title['rendered']+'</h3>';
+        blog_posts += '<h4>'+(date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear()+'</h4>';
+        blog_posts += post.content['rendered'];
+        blog_posts += '<div class="hline"></div>';
+        blog_posts += '<div class="spacing"></div>';
+      });
+
+      $('#blog-posts').html(blog_posts);
+  	});
+
+    $.ajax({
+        url : "site_generated.txt",
+        dataType: "text",
+        success : function (data) {
+          $("#site_generated").html('<h5>'+data+'</h5>');
+        }
+    });
+
+  });
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
