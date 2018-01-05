@@ -84,7 +84,7 @@
   $(function() {
 
   	// Call the /posts endpoint via the WordPress API
-  	$.get("https://mbontest.com/wp-json/wp/v2/posts", function (posts) {
+  	$.get("https://mbontest.infinitywebtest.com/wp-json/wp/v2/posts", function (posts) {
 
       blog_posts = '';
       $.each(posts, function(index, post) {
@@ -101,7 +101,7 @@
   	});
 
     $.ajax({
-        url : "site_generated.txt",
+        url : "/site_generated.txt",
         dataType: "text",
         success : function (data) {
           $("#site_generated").html('<h5>'+data+'</h5>');

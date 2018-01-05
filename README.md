@@ -2,9 +2,9 @@
 
 ![alt text](https://github.com/asugrad/laravelzap/blob/master/resources/assets/img/browser.png "Laravel Zap")
 
-[Laravel Zap Home Page](https://laravelzap.com)
+[Laravel Zap Home Page](https://laravelzap.infinitydirect.com)
 
-[Laravel Zap Documentation](https://laravelzap.com/documentation/)
+[Laravel Zap Documentation](https://laravelzap.infinitydirect.com/documentation/)
 
 ## Installation
 Clone or download the repository.
@@ -23,7 +23,7 @@ Clone or download the repository.
 - Create views, models, and controllers just like you usually do, then run `php artisan zap:build` to regenerate the site.
 
 ## About Zap
-Working on the documentation but you can see how the site [Laravel Zap](https://laravelzap.com) works.
+Working on the documentation but you can see how the site [Laravel Zap](https://laravelzap.infinitydirect.com) works.
 This is the code that site is running on.
 
 ## License
